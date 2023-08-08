@@ -13,9 +13,8 @@ class NoteApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(brightness: Brightness.dark,fontFamily: 'Poppins')
       ,
-      home: NotesView(),
+      home:const NotesView(),
     );
   }
 }
-  
 
