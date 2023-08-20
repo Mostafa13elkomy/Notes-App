@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import '../../consts.dart';
 
-class CustomAddButton extends StatelessWidget {
+class CustomAddButton extends StatefulWidget {
   const CustomAddButton({super.key, this.onTap});
 final void Function()? onTap;
+
+  @override
+  State<CustomAddButton> createState() => _CustomAddButtonState();
+}
+
+class _CustomAddButtonState extends State<CustomAddButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: widget.onTap,
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: 55,
