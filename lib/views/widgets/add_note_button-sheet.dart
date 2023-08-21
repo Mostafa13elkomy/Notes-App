@@ -12,7 +12,7 @@ class AddNoteButtonSheet extends StatefulWidget {
 }
 
 class _AddNoteButtonSheetState extends State<AddNoteButtonSheet> {
-  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -22,7 +22,7 @@ class _AddNoteButtonSheetState extends State<AddNoteButtonSheet> {
         child: BlocConsumer<AddNoteCubit, AddNoteState>(
           listener: (context, state) {
             if (state is AddNoteLoading) {
-              isLoading = true;
+            
             }
             if (state is AddNoteFailure) {
               print('failed ${state.errMessage}');
@@ -32,9 +32,11 @@ class _AddNoteButtonSheetState extends State<AddNoteButtonSheet> {
             }
           },
           builder: (context, state) {
-            return ModalProgressHUD(
-                inAsyncCall: isLoading,
-                child: const SingleChildScrollView(child: AddNoteForm()));
+            return AbsorbPointer(
+              absorbing: state is AddNoteLoading ?true : false,
+              child: const SingleChildScrollView(
+              child: AddNoteForm()),
+            );
           },
         ),
       ),
