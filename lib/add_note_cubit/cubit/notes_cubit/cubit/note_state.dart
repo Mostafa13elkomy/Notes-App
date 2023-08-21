@@ -13,4 +13,6 @@ class NoteSuccess extends NoteState {
   NoteSuccess(this.notes);
 }
 
-class NoteFailure extends NoteState {}
+class NoteFailure extends NoteState {
+  NoteFailure(String string);
+}
