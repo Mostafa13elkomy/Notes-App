@@ -14,12 +14,14 @@ class NoteItem extends StatelessWidget {
       onTap: () {
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return const EditNoteView();
+            return  EditNoteView(
+              note: note,
+            );
           },
         ));
       },
       child: Container(
-        padding: EdgeInsets.only(top: 24, bottom: 24, left: 16),
+        padding:const EdgeInsets.only(top: 24, bottom: 24, left: 16),
         decoration: BoxDecoration(
           color: Color(note.color),
           borderRadius: BorderRadius.circular(16),
